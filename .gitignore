@@ -1,3 +1,3 @@
-script.py
-script2.py
-.env
+git rm --cached script.py
+git rm --cached script2.py
+git rm --cached .env
