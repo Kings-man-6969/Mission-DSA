@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class ConsecutiveSubsequences {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+        while (t-- > 0) {
+            int[] cnt = new int[100];
+            int n = scanner.nextInt();
+            int k = scanner.nextInt();
+            cnt[0] = 1;
+            int sum = 0;
+            for (int i = 0; i < n; i++) {
+                int num = scanner.nextInt();
+                sum = (sum + num) % k;
+                cnt[sum]++;
+            }
+            long ret = 0;
+            for (int i = 0; i < k; i++) {
+                ret += (long) cnt[i] * (cnt[i] - 1) / 2;
+            }
+            System.out.println(ret);
+        }
+        scanner.close();
+    }
+}
